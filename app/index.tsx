@@ -17,9 +17,9 @@ export default function Index() {
 
       
     >
-      <Text>hello</Text>
+   
     
-      {/* <Text className="text-lg bg-pink-400">Edit app/index.tsx to edit this screen.</Text> */}
+      <Text className="text-lg bg-pink-400">Edit app/index.tsx to edit this screen.</Text>
     </View>
     </SafeAreaView>
   );
