@@ -13,8 +13,16 @@ export default function Index() {
   //   return () => clearTimeout(timer);
   // }, []);
 
+    const router = useRouter();
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.push("./screens/about");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <SafeAreaView>
+     <SafeAreaView className="flex-1" edges={["top", "bottom"]}>
       <View
         // style={{
         //   flex: 1,
@@ -25,6 +33,7 @@ export default function Index() {
         className=" items-center"
       >
         <Text className="text-lg bg-pink-400">
+
           Edit app/index.tsx to edit this screen.
         </Text>
       </View>

@@ -39,6 +39,9 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import Home from "../screens/home";
 import Services from "../screens/services";
 import ContactForm from "./contactForm";
+import about from "./about";
+
+import projects from "./projects";
 
 const Tab = createBottomTabNavigator();
 const { width } = Dimensions.get("window");
@@ -46,13 +49,17 @@ const { width } = Dimensions.get("window");
 const icons = {
   Home: "home-outline",
   Service: "construct-outline",
-  ContactForm: "call-outline", // Added icon for ContactForm
+  ContactForm: "call-outline",
+  About: "information-circle-outline",
+   Portfolio: "briefcase-outline", // 👈 Add this line
 };
 
 const displayNames = {
   Home: "Home",
   Service: "Service",
-  ContactForm: "Contact", // User-friendly label
+  ContactForm: "Contact",
+  About: "About", 
+    Portfolio: "Portfolio",// 👈 Add this line
 };
 
 const CustomTabBar = ({ state, descriptors, navigation }) => {
@@ -97,8 +104,7 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
           >
             <Animated.View
               style={[
-                styles.iconWrapper,
-                isFocused && styles.focusedIconWrapper,
+                isFocused ? styles.focusedIconWrapper : styles.iconWrapper,
                 {
                   transform: [{ scale: scaleAnim }, { translateY }],
                 },
@@ -110,9 +116,14 @@ const CustomTabBar = ({ state, descriptors, navigation }) => {
                 color={isFocused ? "#fff" : "#777"}
               />
             </Animated.View>
-            {isFocused && (
-              <Text style={styles.focusedText}>{displayNames[route.name]}</Text>
-            )}
+            <Text
+              style={[
+                styles.focusedText,
+                { color: isFocused ? "#fff" : "#777" },
+              ]}
+            >
+              {displayNames[route.name]}
+            </Text>
           </TouchableOpacity>
         );
       })}
@@ -126,9 +137,12 @@ const Tabs = () => {
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <Tab.Screen name="Home" component={Home} />
+      
       <Tab.Screen name="Service" component={Services} />
       <Tab.Screen name="ContactForm" component={ContactForm} />
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="About" component={about} />
+       <Tab.Screen name="Portfolio" component={projects} />
     </Tab.Navigator>
   );
 };
@@ -136,33 +150,30 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   tabContainer: {
     flexDirection: "row",
-    backgroundColor: "#121212", // Dark background
-    height: 80,
+    backgroundColor: "#121212",
+    height: 70,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     justifyContent: "space-around",
     alignItems: "center",
-    paddingBottom: 10,
-    elevation: 8,
+    paddingVertical: 10,
+    elevation: 10,
   },
   tabButton: {
     flex: 1,
     alignItems: "center",
-    position: "relative",
   },
   iconWrapper: {
-    width: 50,
-    height: 50,
-    borderRadius: 30,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "transparent",
-    position: "absolute",
-    top: -20,
-    zIndex: 10,
   },
   focusedIconWrapper: {
-    backgroundColor: "#7B61FF", // Purple color
+    backgroundColor: "#7B61FF",
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.3,
@@ -172,7 +183,7 @@ const styles = StyleSheet.create({
   focusedText: {
     color: "#fff",
     fontSize: 12,
-    marginTop: 45,
+    marginTop: 8,
     fontWeight: "600",
   },
 });
