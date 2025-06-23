@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Text, View, Image, TextInput, FlatList, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { EvilIcons, Ionicons } from '@expo/vector-icons'
@@ -149,8 +150,22 @@ const home = () =>{
 
 
   </View>
+=======
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+
+const home = () => {
+  return (
+    <View>
+      <Text>home</Text>
+    </View>
+>>>>>>> 76bf0a047999654ea8faf3340a874d20bbefc77e
   )
 }
 
 export default home
 
+<<<<<<< HEAD
+=======
+const styles = StyleSheet.create({})
+>>>>>>> 76bf0a047999654ea8faf3340a874d20bbefc77e
