@@ -1,26 +1,42 @@
 import { Text, View } from "react-native";
 import "../global.css";
-import { SafeAreaView } from "react-native-safe-area-context";
+
+import { useEffect, useState } from "react";
+import { useRouter } from "expo-router";
+
 
 export default function Index() {
+    const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+
+
+
+  // About Page
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+
+      router.push('../screens/about');
+    }, 2000);
+    return () => clearTimeout(timer); // ✅ Cleanup on unmount
+  }, []); // ✅ Only run once
+  
+
+  
   return (
-    <SafeAreaView>
     <View
-      // style={{
-      //   flex: 1,
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      // }}
-
-
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
       className=" items-center"
-
-      
     >
-   
-    
-      <Text className="text-lg bg-pink-400">Edit app/index.tsx to edit this screen.</Text>
+      <Text className="text-lg bg-pink-400">
+        Edit app/index.tsx to edit this screen.
+      </Text>
+
+     
     </View>
-    </SafeAreaView>
   );
 }
