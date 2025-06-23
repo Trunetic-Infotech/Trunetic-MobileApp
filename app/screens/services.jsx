@@ -5,7 +5,7 @@ import { Feather } from "@expo/vector-icons";
 const services = () => {
   return (
     <ScrollView>
-      <View className="w-full h-full bg-[#1B3B8F] py-[20px] px-[20px]">
+      <View className="w-full h-full bg-custom-gradient py-[20px] px-[20px]">
         <Text
           className="text-center text-[32px] text-[white] font-bold mb-[30px]"
           style={{
@@ -20,7 +20,8 @@ const services = () => {
           <View className="flex-row w-full h-[50px] border border-black items-center justify-center px-[20px] rounded-[80px] border-none bg-[#1b3b8f] mb-[20px]">
             <Feather name="search" size={20} color="#fff" />
             <TextInput
-              className="w-full text-[white]"
+              className="w-full text-[#fff]"
+              placeholderTextColor="#fff"
               placeholder="Search here..."
             />
           </View>

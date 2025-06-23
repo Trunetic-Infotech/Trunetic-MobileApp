@@ -1,27 +1,3 @@
-// import React from "react";
-// import { View, Text } from "react-native";
-// import Services from "../screens/services";
-// import Home from "../screens/home";
-// import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-// const Tab = createBottomTabNavigator();
-
-// const Tabs = () => {
-//   return (
-//     <Tab.Navigator
-//       screenOptions={{
-//         tabBarShowLabel: false,
-//         tabBarIcon: () => null,
-//       }}
-//     >
-//       <Tab.Screen name="Service" component={Services} />
-//       <Tab.Screen name="Home" component={Home} />
-//     </Tab.Navigator>
-//   );
-// };
-
-// export default Tabs;
-
 import React from "react";
 import {
   View,
