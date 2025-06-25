@@ -1,21 +1,28 @@
-import React, { Component } from 'react'
-import { Text, View, Image } from 'react-native'
+import React, { Component } from "react";
+import { Text, View, Image } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const navbar=()=>   {
- 
-    return (
-      
-        <View className="bg-[#1b3b8f] h-24 flex flex-row items-center ">
-           
-             <View className="">
-                <Image source={require('../../assets/logo10.png')} className="w-20 h-20 bg-white p-2 m-2 rounded-full"/>
-            </View>
-            <Text className="text-white  font-bold text-2xl text-center p-2">Trunetic Infotech Pvt Ltd</Text>
-          
-        </View>
-      
-    )
-  }
+const navbar = () => {
+  return (
 
+    <SafeAreaView>
+    <View className="bg-[#1b3b8f] h-24 flex-row items-center px-2 ">
+      {/* Circular logo with white background and inner spacing */}
+      <View className="w-20 h-20 bg-white rounded-full p-2  justify-center items-center mr-3">
+        <Image
+          source={require("../../assets/logo10.png")}
+          className="w-full h-full rounded-full"
+          resizeMode="cover"
+        />
+      </View>
 
-export default navbar
+      {/* Company Name */}
+      <Text className="text-white font-bold text-2xl">
+        Trunetic Infotech Pvt Ltd
+      </Text>
+    </View>
+    </SafeAreaView>
+  );
+};
+
+export default navbar;

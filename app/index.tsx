@@ -5,6 +5,14 @@ import { useRouter } from "expo-router";
 import { useEffect } from "react";
 
 export default function Index() {
+  // const router = useRouter();
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     router.push("./screens/navigator");
+  //   }, 2000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   const router = useRouter();
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,7 +22,7 @@ export default function Index() {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1" edges={["top", "bottom"]}>
       <View
         // style={{
         //   flex: 1,
