@@ -1,11 +1,46 @@
-import { View, Text, TextInput, Image, ScrollView } from "react-native";
-import React from "react";
 import { Feather } from "@expo/vector-icons";
+import { useState } from "react";
+import { Image, ScrollView, Text, TextInput, View } from "react-native";
 
-const services = () => {
+// Data array for services
+const serviceData = [
+  {
+    title: "Software Development",
+    image: require("../../assets/software development.png"),
+  },
+  {
+    title: "App Development",
+    image: require("../../assets/App Development.png"),
+  },
+  {
+    title: "Web Development",
+    image: require("../../assets/webdevelopment.png"),
+  },
+  {
+    title: "CRM",
+    image: require("../../assets/CRM.png"),
+  },
+  {
+    title: "ERP",
+    image: require("../../assets/ERP.png"),
+  },
+  {
+    title: "Internship",
+    image: require("../../assets/INTERNSHIP.png"),
+  },
+];
+
+const Services = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Filter the services based on search query
+  const filteredServices = serviceData.filter((service) =>
+    service.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <ScrollView>
-      <View className="w-full h-full bg-[#1B3B8F] py-[20px] px-[20px]">
+      <View className="w-full min-h-screen bg-custom-gradient py-[20px] px-[20px]">
         <Text
           className="text-center text-[32px] text-[white] font-bold mb-[30px]"
           style={{
@@ -16,62 +51,37 @@ const services = () => {
         >
           SERVICES!
         </Text>
-        <View className="w-full h-full bg-[white] rounded-t-[50px] py-[30px] px-[20px]">
-          <View className="flex-row w-full h-[50px] border border-black items-center justify-center px-[20px] rounded-[80px] border-none bg-[#1b3b8f] mb-[20px]">
+
+        <View className="w-full min-h-screen bg-[white] rounded-t-[50px] py-[30px] px-[20px]">
+          {/* Search Input */}
+          <View className="flex-row w-full h-[50px] items-center px-[20px] rounded-[80px] bg-[#1b3b8f] mb-[20px]">
             <Feather name="search" size={20} color="#fff" />
             <TextInput
               className="w-full text-white"
               placeholder="Search here..."
                placeholderTextColor="#fff"
+               value={searchQuery}
+               onChangeText={setSearchQuery}
             />
           </View>
-          <View className="flex-row justify-between mb-[20px]">
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/software development.png")}
-              />
-              <Text className="text-center">Software Development</Text>
-            </View>
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/App Development.png")}
-              />
-              <Text className="text-center">App Development</Text>
-            </View>
-          </View>
-          <View className="flex-row justify-between mb-[20px]">
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/webdevelopment.png")}
-              />
-              <Text className="text-center">Web Development</Text>
-            </View>
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/CRM.png")}
-              />
-              <Text className="text-center">CRM</Text>
-            </View>
-          </View>
-          <View className="flex-row justify-between mb-[20px]">
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/ERP.png")}
-              />
-              <Text className="text-center">ERP</Text>
-            </View>
-            <View>
-              <Image
-                className="w-[150px] h-[150px] rounded-[10px]"
-                source={require("../../assets/INTERNSHIP.png")}
-              />
-              <Text className="text-center">Internship</Text>
-            </View>
+
+          {/* Filtered Services */}
+          <View className="flex-wrap flex-row justify-between">
+            {filteredServices.length > 0 ? (
+              filteredServices.map((item, index) => (
+                <View key={index} className="mb-[20px] w-[48%]">
+                  <Image
+                    className="w-full h-[150px] rounded-[10px]"
+                    source={item.image}
+                  />
+                  <Text className="text-center mt-[5px]">{item.title}</Text>
+                </View>
+              ))
+            ) : (
+              <Text className="text-center w-full text-gray-500 mt-10">
+                No services found.
+              </Text>
+            )}
           </View>
         </View>
       </View>
@@ -79,4 +89,4 @@ const services = () => {
   );
 };
 
-export default services;
+export default Services;

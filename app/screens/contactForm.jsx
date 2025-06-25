@@ -2,7 +2,7 @@ import { View, Text, TextInput, Button } from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
 
-const contactForm = () => {
+const ContactForm = () => {
   return (
     <View>
       <View className="h-full w-full bg-[#1B3B8F] px-[30px] py-[20px]">
@@ -68,4 +68,4 @@ const contactForm = () => {
   );
 };
 
-export default contactForm;
+export default ContactForm;
