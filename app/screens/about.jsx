@@ -53,7 +53,7 @@ const about = () => {
       <View className="items-center mb-6">
         <TextInput
           placeholder="search...."
-          className="border-2 border-black placeholder:text-white text-white w-full rounded-2xl mt-[5%] bg-[#1B3B8F] px-4 py-2"
+          className="border-2 border-black  text-white w-full rounded-2xl mt-[5%] bg-[#1B3B8F] px-4 py-2"
         />
       </View>
 

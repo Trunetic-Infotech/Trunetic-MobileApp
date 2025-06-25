@@ -20,8 +20,9 @@ const services = () => {
           <View className="flex-row w-full h-[50px] border border-black items-center justify-center px-[20px] rounded-[80px] border-none bg-[#1b3b8f] mb-[20px]">
             <Feather name="search" size={20} color="#fff" />
             <TextInput
-              className="w-full text-[white]"
+              className="w-full text-white"
               placeholder="Search here..."
+               placeholderTextColor="#fff"
             />
           </View>
           <View className="flex-row justify-between mb-[20px]">
